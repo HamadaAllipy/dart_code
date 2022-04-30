@@ -2,9 +2,12 @@
 void main() {
   Stopwatch stopwatch = Stopwatch();
   stopwatch.start();
-  print(addToUp(1200343).toInt());
-  print(addToUp2(1200343).toInt());
+  print(addToUp(5).toInt());
+  print(addToUp2(5).toInt());
+  print(sum([1,2,3,4,5]));
+  doubleListItem([1,2,3,4,5]);
   print(stopwatch.elapsed);
+
 }
 
 // solution one
@@ -34,4 +37,22 @@ int addToUp2(int max) {
     total += i;
   }
   return total;
+}
+
+
+// time complexity
+int sum(List<int> numbers){
+  int total = 0;
+  for(int i = 0; i < numbers.length; i++){
+    total += numbers[i];
+  }
+  return total;
+}
+
+void doubleListItem(List<int> numbers) {
+  List<int> newList = [];
+  for (int i = 0; i < numbers.length; i++) {
+    newList.add(2 * numbers[i]);
+  }
+  print(newList);
 }
