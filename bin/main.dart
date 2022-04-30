@@ -1,12 +1,19 @@
-import 'examples/solid/1_single_responsibilities/ex_2/Invoice_printer.dart';
-import 'examples/solid/1_single_responsibilities/ex_2/invoice.dart';
-import 'examples/solid/2-open_closed/ex_1/god/shape_printer.dart';
-import 'examples/solid/2-open_closed/ex_1/god/square.dart';
+void main(){
 
-void main(List<String> arguments) {
-
-  ShapePrinter printer = ShapePrinter();
-  printer.drawShape(Square(20));
+  print(textReverse('hamada'));
+  print(textReverse2('hamada'));
 }
 
+// solution one
+String textReverse(String text){
+  return text.split('').reversed.join();
+}
+// solution two
+String textReverse2(String text){
+  String reversed = '';
+  for(int i = 0; i < text.length; i++){
+    reversed = text[i] + reversed;
+  }
+  return reversed;
+}
 
