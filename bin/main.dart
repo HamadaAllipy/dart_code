@@ -1,13 +1,14 @@
 //
 void main() {
-  Stopwatch stopwatch = Stopwatch();
-  stopwatch.start();
-  print(addToUp(5).toInt());
-  print(addToUp2(5).toInt());
-  print(sum([1,2,3,4,5]));
-  doubleListItem([1,2,3,4,5]);
-  print(stopwatch.elapsed);
-
+  // Stopwatch stopwatch = Stopwatch();
+  // stopwatch.start();
+  // print(addToUp(5).toInt());
+  // print(addToUp2(5).toInt());
+  // print(sum([1,2,3,4,5]));
+  // doubleListItem([1,2,3,4,5]);
+  // print(stopwatch.elapsed);
+  String text = 'ham  adaH';
+  print(charCounter(text));
 }
 
 // solution one
@@ -39,11 +40,10 @@ int addToUp2(int max) {
   return total;
 }
 
-
 // time complexity
-int sum(List<int> numbers){
+int sum(List<int> numbers) {
   int total = 0;
-  for(int i = 0; i < numbers.length; i++){
+  for (int i = 0; i < numbers.length; i++) {
     total += numbers[i];
   }
   return total;
@@ -55,4 +55,20 @@ void doubleListItem(List<int> numbers) {
     newList.add(2 * numbers[i]);
   }
   print(newList);
+}
+
+Map charCounter(String text) {
+  Map result = {};
+  String lowerCase = text.replaceAll(' ', '')..toLowerCase();
+  print(lowerCase);
+  for(int i = 0; i < lowerCase.length; i++){
+    String character = lowerCase[i];
+    if(result.containsKey(character)){
+      result[character] += 1;
+    }
+    else{
+      result[character] = 1;
+    }
+  }
+  return result;
 }
