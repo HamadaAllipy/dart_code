@@ -7,8 +7,10 @@ void main() {
   // print(sum([1,2,3,4,5]));
   // doubleListItem([1,2,3,4,5]);
   // print(stopwatch.elapsed);
-  String text = 'ham  adaH';
-  print(charCounter(text));
+  // String text = 'ham  adaH';
+  // print(charCounter(text));
+
+  recursion(5);
 }
 
 // solution one
@@ -71,4 +73,19 @@ Map charCounter(String text) {
     }
   }
   return result;
+}
+
+// solution one best
+void recursion(int n){
+  if(n < 0){
+    return;
+  }
+  print(n);
+  recursion(n-1);
+}
+// solution two bad
+void recursion2(int n){
+  for(n; n >= 0; n--){
+    print(n);
+  }
 }
