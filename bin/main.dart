@@ -1,15 +1,7 @@
 
 //0:00:00.013532
 void main() {
-  Stopwatch stopwatch = Stopwatch();
-  var list = List.generate(700000000, (index) => index + 1);
-  int key = 700000000;
-  // print('key = $key');
-  // print(list);
-  stopwatch.start();
-  print('index = ${binarySearch2(list, key)}');
-  // print('index = ${linearSearch2(list, key)}');
-  print(stopwatch.elapsed);
+  sortBuiltInMethod();
 }
 
 // *1 example
@@ -237,4 +229,11 @@ int binarySearch2(List list, int key){
     return middle;
   }
   return -1;
+}
+
+// sort with built in method
+void sortBuiltInMethod(){
+  List<int> list = [0, -1, 343, 3, -44, 10];
+  list.sort();
+  print(list.reversed);
 }
