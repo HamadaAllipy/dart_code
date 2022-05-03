@@ -1,10 +1,15 @@
-//
+
+//0:00:00.013532
 void main() {
-  var list = [5, 8, 12, 16, 19, 25, 30];
-  int key = 12;
-  print('key = $key');
-  print(list);
-  print('index = ${binarySearch(list, key)}');
+  Stopwatch stopwatch = Stopwatch();
+  var list = List.generate(700000000, (index) => index + 1);
+  int key = 700000000;
+  // print('key = $key');
+  // print(list);
+  stopwatch.start();
+  print('index = ${binarySearch2(list, key)}');
+  // print('index = ${linearSearch2(list, key)}');
+  print(stopwatch.elapsed);
 }
 
 // *1 example
@@ -207,6 +212,26 @@ int binarySearch(List list, int key) {
      start = middle + 1;
    }
    middle = ((start + end) / 2).floor();
+  }
+  if(list[middle] == key){
+    return middle;
+  }
+  return -1;
+}
+
+
+int binarySearch2(List list, int key){
+  int start = 0;
+  int end = list.length - 1;
+  int middle = ((start + end ) / 2).floor();
+  while(list[middle] != key && start < end){
+    if(list[middle] > key){
+      end = middle -1;
+    }
+    else{
+      start = middle + 1;
+    }
+     middle = ((start + end ) / 2).floor();
   }
   if(list[middle] == key){
     return middle;
