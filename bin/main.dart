@@ -234,6 +234,8 @@ int binarySearch2(List list, int key){
 // sort with built in method
 void sortBuiltInMethod(){
   List<int> list = [0, -1, 343, 3, -44, 10];
-  list.sort();
-  print(list.reversed);
+  List<String> listString = ['zaid','hamada', 'ahmed', 'mohamed'];
+  listString.sort((a, b) => a.length.compareTo(b.length));
+  print(list..sort());
+  print(listString);
 }
