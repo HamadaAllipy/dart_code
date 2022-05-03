@@ -6,7 +6,7 @@ void main() {
 }
 
 
-// *example
+// *1 example
 // اكتب فانشكن بتاخد نص وبتعكسه
 // solution one
 String textReverse(String text) {
@@ -23,7 +23,7 @@ String textReverse2(String text) {
 }
 
 //////////////////////////////////////////////////////////////
-// *example
+// *2 example
 // اكتب فانكشن بتاخد رقم وبتجمع مجموع الرقم والارقام اللي قبليها
 // solution one
 double addToUp(double max) {
@@ -39,7 +39,7 @@ int addToUp2(int max) {
   return total;
 }
 
-// *example
+// *3 example
 // اكتب فانكشن بتاخد ليست وبتحسب مجموع الارقام داخل الليست
 // time complexity
 int sum(List<int> numbers) {
@@ -50,7 +50,7 @@ int sum(List<int> numbers) {
   return total;
 }
 
-// *example
+// *4 example
 // اكتب فانشكن بتنسخ الليست في ليستا تانيه
 void doubleListItem(List<int> numbers) {
   List<int> newList = [];
@@ -76,7 +76,7 @@ Map charCounter(String text) {
   return result;
 }
 
-// *example
+// *5 example
 // اكتب فانشكن بتاخد رقم وتتطبع من رقم الي الصفر
 // solution one best
 void recursion(int n){
@@ -94,7 +94,7 @@ void recursion2(int n){
   }
 }
 
-// *example
+// *6 example
 // اكتب فانشكن بتاخد ليست وتطبع الارقام الزوجية فقط
 void isOdd(List<int> numbers){
   for(int i = 0 ; i < numbers.length; i++){
