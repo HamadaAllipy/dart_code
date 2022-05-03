@@ -1,8 +1,8 @@
 //
 void main() {
 
-  final numbers = [1,2,3,4,5,6,7,8,9];
-  isOdd(numbers);
+  final numberss = [1,2,3,4,5,6,7,8];
+  isOddRecursion(numberss);
 }
 
 
@@ -102,4 +102,17 @@ void isOdd(List<int> numbers){
       print(numbers[i]);
     }
   }
+}
+
+// الحل بتاعي
+void isOddRecursion(List<int> numbers){
+  if(numbers.isEmpty){
+    return;
+  }
+  if(numbers[0] % 2 == 0){
+    print(numbers[0]);
+  }
+  numbers.removeAt(0);
+  isOddRecursion(numbers);
+
 }
