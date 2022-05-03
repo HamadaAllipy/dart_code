@@ -1,8 +1,8 @@
 //
 void main() {
 
-  final numberss = [1,2,3,4,5,6,7,8];
-  isOddRecursion(numberss);
+  recursion(5);
+  countDown(5);
 }
 
 
@@ -77,15 +77,16 @@ Map charCounter(String text) {
 }
 
 // *5 example
+// recursion -- recursive function
 // اكتب فانشكن بتاخد رقم وتتطبع من رقم الي الصفر
 // solution one best
 void recursion(int n){
   if(n < 0){
     return;
   }
-  recursion(n-1);
   print(n);
-
+  n--;
+  recursion(n--);
 }
 // solution two bad
 void recursion2(int n){
@@ -94,6 +95,15 @@ void recursion2(int n){
   }
 }
 
+void countDown(int number){
+  if(number <= 0){
+    print('all done');
+    return;
+  }
+  print(number);
+  number--;
+  countDown(number);
+}
 // *6 example
 // اكتب فانشكن بتاخد ليست وتطبع الارقام الزوجية فقط
 void isOdd(List<int> numbers){
