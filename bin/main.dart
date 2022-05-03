@@ -1,18 +1,13 @@
 //
 void main() {
-  // Stopwatch stopwatch = Stopwatch();
-  // stopwatch.start();
-  // print(addToUp(5).toInt());
-  // print(addToUp2(5).toInt());
-  // print(sum([1,2,3,4,5]));
-  // doubleListItem([1,2,3,4,5]);
-  // print(stopwatch.elapsed);
-  // String text = 'ham  adaH';
-  // print(charCounter(text));
 
-  recursion(5);
+  final numbers = [1,2,3,4,5,6,7,8,9];
+  isOdd(numbers);
 }
 
+
+// *example
+// اكتب فانشكن بتاخد نص وبتعكسه
 // solution one
 String textReverse(String text) {
   return text.split('').reversed.join();
@@ -28,6 +23,8 @@ String textReverse2(String text) {
 }
 
 //////////////////////////////////////////////////////////////
+// *example
+// اكتب فانكشن بتاخد رقم وبتجمع مجموع الرقم والارقام اللي قبليها
 // solution one
 double addToUp(double max) {
   return max * (max + 1) / 2;
@@ -42,6 +39,8 @@ int addToUp2(int max) {
   return total;
 }
 
+// *example
+// اكتب فانكشن بتاخد ليست وبتحسب مجموع الارقام داخل الليست
 // time complexity
 int sum(List<int> numbers) {
   int total = 0;
@@ -51,6 +50,8 @@ int sum(List<int> numbers) {
   return total;
 }
 
+// *example
+// اكتب فانشكن بتنسخ الليست في ليستا تانيه
 void doubleListItem(List<int> numbers) {
   List<int> newList = [];
   for (int i = 0; i < numbers.length; i++) {
@@ -75,17 +76,30 @@ Map charCounter(String text) {
   return result;
 }
 
+// *example
+// اكتب فانشكن بتاخد رقم وتتطبع من رقم الي الصفر
 // solution one best
 void recursion(int n){
   if(n < 0){
     return;
   }
-  print(n);
   recursion(n-1);
+  print(n);
+
 }
 // solution two bad
 void recursion2(int n){
   for(n; n >= 0; n--){
     print(n);
+  }
+}
+
+// *example
+// اكتب فانشكن بتاخد ليست وتطبع الارقام الزوجية فقط
+void isOdd(List<int> numbers){
+  for(int i = 0 ; i < numbers.length; i++){
+    if(numbers[i] % 2 == 0){
+      print(numbers[i]);
+    }
   }
 }
