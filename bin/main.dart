@@ -1,8 +1,12 @@
 //
 void main() {
-  final list = [1,2,3,4,5,6,7,8,9,10];
-  print(listOddd(list));
+  List<int> list1 = List.generate(100, (index) => index + 1);
+  print(linearSearch(list1, 56));
+  print(linearSearch2(list1, 56));
+
 }
+
+
 
 // *1 example
 // اكتب فانشكن بتاخد نص وبتعكسه
@@ -172,4 +176,20 @@ List<int> listOddd(List<int> numbers){
   }
   helper(numbers);
   return result;
+}
+
+
+// ١- خوارزمية البحث الخطي
+int linearSearch(List list, var value) {
+  return list.indexOf(value);
+}
+
+
+int linearSearch2(List list, var value) {
+  for (int i = 0; i < list.length; i++) {
+    if (list[i] == value) {
+      return i;
+    }
+  }
+  return -1;
 }
