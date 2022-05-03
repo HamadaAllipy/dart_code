@@ -1,6 +1,7 @@
 //
 void main() {
-  print(fact(5));
+  final list = [1,2,3,4,5,6,7,8,9,10];
+  print(listOddd(list));
 }
 
 // *1 example
@@ -144,4 +145,31 @@ int fact(int number) {
   // 5
   int total = number * fact(number - 1);
   return total;
+}
+
+// اكتب فانكشن بتاخد ليست وبترجع الارقام الفردية في ليستا تانيه
+List<int> listOdd(List<int> numbers){
+  List<int> odd = [];
+  for(int i = 0 ; i < numbers.length ; i++){
+    if(numbers[i] % 2 == 1){
+      odd.add(numbers[i]);
+    }
+  }
+  return odd;
+}
+
+List<int> listOddd(List<int> numbers){
+  List<int> result = [];
+  void helper(List<int> list){
+    if(list.isEmpty){
+      return;
+    }
+    if(list[0] % 2 != 0){
+      result.add(list[0]);
+    }
+    list = list.sublist(1,list.length);
+    helper(list);
+  }
+  helper(numbers);
+  return result;
 }
