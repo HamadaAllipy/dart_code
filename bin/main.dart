@@ -1,12 +1,11 @@
 //
 void main() {
-  List<int> list1 = List.generate(100, (index) => index + 1);
-  print(linearSearch(list1, 56));
-  print(linearSearch2(list1, 56));
-
+  var list = [5, 8, 12, 16, 19, 25, 30];
+  int key = 12;
+  print('key = $key');
+  print(list);
+  print('index = ${binarySearch(list, key)}');
 }
-
-
 
 // *1 example
 // اكتب فانشكن بتاخد نص وبتعكسه
@@ -152,44 +151,65 @@ int fact(int number) {
 }
 
 // اكتب فانكشن بتاخد ليست وبترجع الارقام الفردية في ليستا تانيه
-List<int> listOdd(List<int> numbers){
+List<int> listOdd(List<int> numbers) {
   List<int> odd = [];
-  for(int i = 0 ; i < numbers.length ; i++){
-    if(numbers[i] % 2 == 1){
+  for (int i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 == 1) {
       odd.add(numbers[i]);
     }
   }
   return odd;
 }
 
-List<int> listOddd(List<int> numbers){
+List<int> listOddd(List<int> numbers) {
   List<int> result = [];
-  void helper(List<int> list){
-    if(list.isEmpty){
+  void helper(List<int> list) {
+    if (list.isEmpty) {
       return;
     }
-    if(list[0] % 2 != 0){
+    if (list[0] % 2 != 0) {
       result.add(list[0]);
     }
-    list = list.sublist(1,list.length);
+    list = list.sublist(1, list.length);
     helper(list);
   }
+
   helper(numbers);
   return result;
 }
-
 
 // ١- خوارزمية البحث الخطي
 int linearSearch(List list, var value) {
   return list.indexOf(value);
 }
 
-
 int linearSearch2(List list, var value) {
   for (int i = 0; i < list.length; i++) {
     if (list[i] == value) {
       return i;
     }
+  }
+  return -1;
+}
+
+// خوارزمية البحث الثنائي
+//   [ 5 , 8 , 12 , 16 , 19 , 25 , 30 ]
+int binarySearch(List list, int key) {
+  int start = 0;
+  int end = list.length - 1;
+  int middle = ((start + end) / 2).floor();
+  while(list[middle] != key && start < end){
+    print('start = $start, middle = $middle, end = $end');
+   if(list[middle] > key){
+     end = middle - 1;
+   }
+   else{
+     start = middle + 1;
+   }
+   middle = ((start + end) / 2).floor();
+  }
+  if(list[middle] == key){
+    return middle;
   }
   return -1;
 }
