@@ -1,8 +1,6 @@
 //
 void main() {
 
-  recursion(5);
-  countDown(5);
 }
 
 
@@ -97,6 +95,7 @@ void recursion2(int n){
 
 void countDown(int number){
   if(number <= 0){
+    /// base case;;;;;  هو الشرط اللي هويقف استدعاء الفانشكن
     print('all done');
     return;
   }
