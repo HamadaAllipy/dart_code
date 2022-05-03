@@ -1,7 +1,7 @@
 
 //0:00:00.013532
 void main() {
-  sortBuiltInMethod();
+  sortMap();
 }
 
 // *1 example
@@ -238,4 +238,27 @@ void sortBuiltInMethod(){
   listString.sort((a, b) => a.length.compareTo(b.length));
   print(list..sort());
   print(listString);
+}
+
+void sortMap(){
+  List<Map<String, dynamic>> clothes = [
+    {
+      'name':'shoes',
+      'price': 300,
+    },
+    {
+      'name':'shirt',
+      'price': 200,
+    },
+    {
+      'name':'swatter',
+      'price': 450,
+    },
+    {
+      'name':'bow',
+      'price': 25,
+    },
+  ];
+  clothes.sort(((a, b) => a['price'].compareTo(b['price'])));
+  print(clothes);
 }
