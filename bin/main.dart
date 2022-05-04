@@ -1,7 +1,7 @@
 //0:00:00.013532
 void main() {
   List<int> list = [332, 6, 8, 100, 34, 221, 22, 332, 5, 1, 11, 100];
-  bubbleSort(list);
+  bubbleSort2(list);
 }
 
 // *1 example
@@ -273,5 +273,26 @@ List<int> bubbleSort(List<int> list) {
       }
     }
   }
+  return list;
+}
+// optimize bubble sorting
+List<int> bubbleSort2(List<int> list) {
+  int count = 0 ;
+  bool noSwap;
+  for(int i = list.length; i > 0; i--){
+    print(list);
+    noSwap = true;
+    for(int j = 0 ; j < i - 1; j++){
+      count++;
+      if(list[j] > list[j + 1]){
+        int num = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = num;
+        noSwap = false;
+      }
+    }
+    if(noSwap)break;
+  }
+  print(count);
   return list;
 }
