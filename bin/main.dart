@@ -1,6 +1,7 @@
 //0:00:00.013532
 void main() {
-  swapTwoVariable();
+  List<int> list = [10,5,1,2,9,12,8];
+  print(selectionSort(list));
 }
 
 
@@ -303,5 +304,22 @@ List<int> bubbleSort2(List<int> list) {
     if(noSwap)break;
   }
   print(count);
+  return list;
+}
+
+List<int> selectionSort(List<int> list){
+  for(int i = 0; i < list.length; i++){
+    int min = i;
+    for(int j = i + 1 ; j < list.length; j++){
+      if(list[j] < list[min]){
+        min = j;
+      }
+    }
+    if(min != i){
+      int temp = list[i];
+      list[i] = list[min];
+      list[min] = temp;
+    }
+  }
   return list;
 }
