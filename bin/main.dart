@@ -1,9 +1,18 @@
 //0:00:00.013532
 void main() {
-  List<int> list = [332, 6, 8, 100, 34, 221, 22, 332, 5, 1, 11, 100];
-  bubbleSort2(list);
+  swapTwoVariable();
 }
 
+
+void swapTwoVariable(){
+  int num1 = 55;
+  int num2 = 23;
+  num1 = num1 + num2; // 55 + 23 = 78
+  num2 = num1 - num2; // 78 - 23 = 55
+  num1 = num1 - num2; // 78 - 55 = 23
+  print('num1 = $num1');
+  print('num2 = $num2');
+}
 // *1 example
 // اكتب فانشكن بتاخد نص وبتعكسه
 // solution one
