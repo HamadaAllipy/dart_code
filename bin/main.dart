@@ -1,7 +1,7 @@
-
 //0:00:00.013532
 void main() {
-  sortMap();
+  List<int> list = [332, 6, 8, 100, 34, 221, 22, 332, 5, 1, 11, 100];
+  bubbleSort(list);
 }
 
 // *1 example
@@ -195,70 +195,83 @@ int binarySearch(List list, int key) {
   int start = 0;
   int end = list.length - 1;
   int middle = ((start + end) / 2).floor();
-  while(list[middle] != key && start < end){
+  while (list[middle] != key && start < end) {
     print('start = $start, middle = $middle, end = $end');
-   if(list[middle] > key){
-     end = middle - 1;
-   }
-   else{
-     start = middle + 1;
-   }
-   middle = ((start + end) / 2).floor();
+    if (list[middle] > key) {
+      end = middle - 1;
+    } else {
+      start = middle + 1;
+    }
+    middle = ((start + end) / 2).floor();
   }
-  if(list[middle] == key){
+  if (list[middle] == key) {
     return middle;
   }
   return -1;
 }
 
-
-int binarySearch2(List list, int key){
+int binarySearch2(List list, int key) {
   int start = 0;
   int end = list.length - 1;
-  int middle = ((start + end ) / 2).floor();
-  while(list[middle] != key && start < end){
-    if(list[middle] > key){
-      end = middle -1;
-    }
-    else{
+  int middle = ((start + end) / 2).floor();
+  while (list[middle] != key && start < end) {
+    if (list[middle] > key) {
+      end = middle - 1;
+    } else {
       start = middle + 1;
     }
-     middle = ((start + end ) / 2).floor();
+    middle = ((start + end) / 2).floor();
   }
-  if(list[middle] == key){
+  if (list[middle] == key) {
     return middle;
   }
   return -1;
 }
 
 // sort with built in method
-void sortBuiltInMethod(){
+void sortBuiltInMethod() {
   List<int> list = [0, -1, 343, 3, -44, 10];
-  List<String> listString = ['zaid','hamada', 'ahmed', 'mohamed'];
+  List<String> listString = ['zaid', 'hamada', 'ahmed', 'mohamed'];
   listString.sort((a, b) => a.length.compareTo(b.length));
   print(list..sort());
   print(listString);
 }
 
-void sortMap(){
+void sortMap() {
   List<Map<String, dynamic>> clothes = [
     {
-      'name':'shoes',
+      'name': 'shoes',
       'price': 300,
     },
     {
-      'name':'shirt',
+      'name': 'shirt',
       'price': 200,
     },
     {
-      'name':'swatter',
+      'name': 'swatter',
       'price': 450,
     },
     {
-      'name':'bow',
+      'name': 'bow',
       'price': 25,
     },
   ];
   clothes.sort(((a, b) => a['price'].compareTo(b['price'])));
   print(clothes);
+}
+
+// Sorting
+// 1- Bubble Sorting
+List<int> bubbleSort(List<int> list) {
+  for(int i = 0; i < list.length; i++){
+    print(list);
+    for(int j = 0 ; j < list.length - 1; j++){
+      if(list[j] > list[j + 1]){
+        int num = list[j];
+        list[j] = list[j + 1];
+        list[j + 1] = num;
+      }
+    }
+  }
+  return list;
 }
