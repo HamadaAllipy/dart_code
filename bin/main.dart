@@ -1,7 +1,6 @@
 //0:00:00.013532
 void main() {
-  List<int> list = [10,5,1,2,9,12,8];
-  print(selectionSort(list));
+  insertionSort();
 }
 
 
@@ -322,4 +321,18 @@ List<int> selectionSort(List<int> list){
     }
   }
   return list;
+}
+
+
+void insertionSort(){
+  List<int> list = [80,11,15,6,77,7,64];
+  for(int i = 1; i < list.length; i++){
+    int current = list[i];
+    int j;
+   for(j = i - 1; (j > -1) && current < list[j]; j--){
+     list[j + 1] = list[j];
+   }
+   list[j + 1] = current;
+  }
+  print(list);
 }
