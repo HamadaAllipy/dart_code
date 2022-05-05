@@ -1,6 +1,7 @@
 //0:00:00.013532
 void main() {
-  merge();
+  List<int> list = [2,15,7,32,48,15,7,78,28,29,35];
+  print(mergeSort(list));
 }
 
 
@@ -337,10 +338,18 @@ void insertionSort(){
   print(list);
 }
 
+//[2,15,7,32,48,15,7,78,28,29,35];
+List<int> mergeSort(List<int> list){
+  if(list.length <= 1) {
+    return list;
+  }
+  int middleIndex = (list.length / 2).floor();
+  List<int> leftList = mergeSort(list.sublist(0,middleIndex));
+  List<int> rightList = mergeSort(list.sublist(middleIndex));
+  return merge(leftList, rightList);
+}
 // create function merge
-void merge(){
-  List<int> list1 = [1,2,8,17];
-  List<int> list2 = [5,7,14,28,29,33];
+List<int> merge(List<int> list1, List<int> list2){
   List<int> merged = [];
   int i = 0;
   int j = 0;
@@ -362,5 +371,5 @@ void merge(){
     merged.add(list2[j]);
     j++;
   }
-  print(merged);
+  return merged;
 }
