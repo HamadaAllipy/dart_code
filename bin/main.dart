@@ -1,6 +1,6 @@
 //0:00:00.013532
 void main() {
-  insertionSort();
+  merge();
 }
 
 
@@ -335,4 +335,32 @@ void insertionSort(){
    list[j + 1] = current;
   }
   print(list);
+}
+
+// create function merge
+void merge(){
+  List<int> list1 = [1,2,8,17];
+  List<int> list2 = [5,7,14,28,29,33];
+  List<int> merged = [];
+  int i = 0;
+  int j = 0;
+  while(i < list1.length && j < list2.length){
+    if(list1[i] < list2[j]){
+      merged.add(list1[i]);
+      i++;
+    }
+    else{
+      merged.add(list2[j]);
+      j++;
+    }
+  }
+  while(i < list1.length){
+    merged.add(list1[i]);
+    i++;
+  }
+  while(j < list2.length){
+    merged.add(list2[j]);
+    j++;
+  }
+  print(merged);
 }
