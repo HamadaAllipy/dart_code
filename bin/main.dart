@@ -1,12 +1,11 @@
 import 'dart:math' as math;
+
 void main() {
-  int num = 01203;
-  print(digitCount(num));
-  print(digitCount2(num));
+  List<int> list = [-12,3432423,234,322,-853489589];
+  mostDigit(list);
 }
 
-
-void swapTwoVariable(){
+void swapTwoVariable() {
   int num1 = 55;
   int num2 = 23;
   num1 = num1 + num2; // 55 + 23 = 78
@@ -15,6 +14,7 @@ void swapTwoVariable(){
   print('num1 = $num1');
   print('num2 = $num2');
 }
+
 // *1 example
 // اكتب فانشكن بتاخد نص وبتعكسه
 // solution one
@@ -274,10 +274,10 @@ void sortMap() {
 // Sorting
 // 1- Bubble Sorting
 List<int> bubbleSort(List<int> list) {
-  for(int i = 0; i < list.length; i++){
+  for (int i = 0; i < list.length; i++) {
     print(list);
-    for(int j = 0 ; j < list.length - 1; j++){
-      if(list[j] > list[j + 1]){
+    for (int j = 0; j < list.length - 1; j++) {
+      if (list[j] > list[j + 1]) {
         int num = list[j];
         list[j] = list[j + 1];
         list[j + 1] = num;
@@ -286,37 +286,38 @@ List<int> bubbleSort(List<int> list) {
   }
   return list;
 }
+
 // optimize bubble sorting
 List<int> bubbleSort2(List<int> list) {
-  int count = 0 ;
+  int count = 0;
   bool noSwap;
-  for(int i = list.length; i > 0; i--){
+  for (int i = list.length; i > 0; i--) {
     print(list);
     noSwap = true;
-    for(int j = 0 ; j < i - 1; j++){
+    for (int j = 0; j < i - 1; j++) {
       count++;
-      if(list[j] > list[j + 1]){
+      if (list[j] > list[j + 1]) {
         int num = list[j];
         list[j] = list[j + 1];
         list[j + 1] = num;
         noSwap = false;
       }
     }
-    if(noSwap)break;
+    if (noSwap) break;
   }
   print(count);
   return list;
 }
 
-List<int> selectionSort(List<int> list){
-  for(int i = 0; i < list.length; i++){
+List<int> selectionSort(List<int> list) {
+  for (int i = 0; i < list.length; i++) {
     int min = i;
-    for(int j = i + 1 ; j < list.length; j++){
-      if(list[j] < list[min]){
+    for (int j = i + 1; j < list.length; j++) {
+      if (list[j] < list[min]) {
         min = j;
       }
     }
-    if(min != i){
+    if (min != i) {
       int temp = list[i];
       list[i] = list[min];
       list[min] = temp;
@@ -325,50 +326,49 @@ List<int> selectionSort(List<int> list){
   return list;
 }
 
-
-void insertionSort(){
-  List<int> list = [80,11,15,6,77,7,64];
-  for(int i = 1; i < list.length; i++){
+void insertionSort() {
+  List<int> list = [80, 11, 15, 6, 77, 7, 64];
+  for (int i = 1; i < list.length; i++) {
     int current = list[i];
     int j;
-   for(j = i - 1; (j > -1) && current < list[j]; j--){
-     list[j + 1] = list[j];
-   }
-   list[j + 1] = current;
+    for (j = i - 1; (j > -1) && current < list[j]; j--) {
+      list[j + 1] = list[j];
+    }
+    list[j + 1] = current;
   }
   print(list);
 }
 
 //[2,15,7,32,48,15,7,78,28,29,35];
-List<int> mergeSort(List<int> list){
-  if(list.length <= 1) {
+List<int> mergeSort(List<int> list) {
+  if (list.length <= 1) {
     return list;
   }
   int middleIndex = (list.length / 2).floor();
-  List<int> leftList = mergeSort(list.sublist(0,middleIndex));
+  List<int> leftList = mergeSort(list.sublist(0, middleIndex));
   List<int> rightList = mergeSort(list.sublist(middleIndex));
   return merge(leftList, rightList);
 }
+
 // create function merge
-List<int> merge(List<int> list1, List<int> list2){
+List<int> merge(List<int> list1, List<int> list2) {
   List<int> merged = [];
   int i = 0;
   int j = 0;
-  while(i < list1.length && j < list2.length){
-    if(list1[i] < list2[j]){
+  while (i < list1.length && j < list2.length) {
+    if (list1[i] < list2[j]) {
       merged.add(list1[i]);
       i++;
-    }
-    else{
+    } else {
       merged.add(list2[j]);
       j++;
     }
   }
-  while(i < list1.length){
+  while (i < list1.length) {
     merged.add(list1[i]);
     i++;
   }
-  while(j < list2.length){
+  while (j < list2.length) {
     merged.add(list2[j]);
     j++;
   }
@@ -376,28 +376,28 @@ List<int> merge(List<int> list1, List<int> list2){
 }
 
 // quick sorting
-List<int> quickSort(List<int> list, [left = 0, int right = -2]){
-  if(right == -2){
+List<int> quickSort(List<int> list, [left = 0, int right = -2]) {
+  if (right == -2) {
     right = list.length;
   }
-  if(left < right){
-    int pivotIndex = pivot(list, left,right);
+  if (left < right) {
+    int pivotIndex = pivot(list, left, right);
     // left
-    quickSort(list,left, pivotIndex - 1);
+    quickSort(list, left, pivotIndex - 1);
     // right
     quickSort(list, pivotIndex + 1, right);
   }
   return list;
 }
-int pivot(List<int> list, [int start = 0, int end = -1]){
 
-  if(end == -1){
+int pivot(List<int> list, [int start = 0, int end = -1]) {
+  if (end == -1) {
     end = list.length - 1;
   }
   int pivott = list[start];
   int swapIndex = start;
-  for(int i = start + 1; i < list.length; i++){
-    if(pivott > list[i]){
+  for (int i = start + 1; i < list.length; i++) {
+    if (pivott > list[i]) {
       swapIndex++;
       swap(list, swapIndex, i);
     }
@@ -405,20 +405,22 @@ int pivot(List<int> list, [int start = 0, int end = -1]){
   swap(list, start, swapIndex);
   return swapIndex;
 }
-void swap(List<int> list, int i, int j){
+
+void swap(List<int> list, int i, int j) {
   int temp = list[i];
   list[i] = list[j];
   list[j] = temp;
 }
 
 // digits counter
-int digitCount(int num){
+int digitCount(int num) {
   if (num == 0) return 1;
   int log10(x) => math.log(x) ~/ math.ln10;
-  int digits = log10(num.abs())+ 1;
+  int digits = log10(num.abs()) + 1;
   return digits;
 }
-int digitCount2(int num){
+
+int digitCount2(int num) {
   int digits;
   if (num.toString().contains('-')) {
     digits = num.toString().length.abs() - 1;
@@ -426,4 +428,12 @@ int digitCount2(int num){
     digits = num.toString().length.abs();
   }
   return digits;
+}
+
+void mostDigit(List<int> list) {
+  int maxDigit = 0;
+  for(int i = 0 ; i < list.length; i++){
+    maxDigit = math.max(maxDigit, digitCount2(list[i]));
+  }
+  print('maxDigit = $maxDigit');
 }
