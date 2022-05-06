@@ -1,8 +1,10 @@
 import 'dart:math' as math;
 
 void main() {
-  int number = 10;
-  print(getNumberByDigitNumber(number, 2));
+
+  int number = 7140;
+  // print(getNumberByDigitNumber(number, 2));
+  print(getNumberByDigitNumber2(number, 1));
 }
 
 void swapTwoVariable() {
@@ -447,3 +449,10 @@ int getNumberByDigitNumber(int number, int digit) {
   }
   return int.parse(numString);
 }
+// right to left
+int getNumberByDigitNumber2(int num, int indexFromRight) {
+  int number = (num.abs() / math.pow(10, indexFromRight)).floor() % 10;
+  return number;
+}
+
+
