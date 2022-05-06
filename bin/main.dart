@@ -1,8 +1,8 @@
 //0:00:00.013532
 void main() {
-  // List<int> list = [8,15,7,32,48,15,7,78,28,29,35];
-  List<int> list = [5,3,2,8,15,4,8,6,10,12,9];
-  print(pivot(list));
+  List<int> list = [8,15,7,32,48,15,7,78,28,29,35];
+  // List<int> list = [5,3,2,8,15,4,8,6,10,12,9];
+  print(quickSort(list));
 }
 
 
@@ -375,28 +375,34 @@ List<int> merge(List<int> list1, List<int> list2){
   return merged;
 }
 
+// quick sorting
+List<int> quickSort(List<int> list, [left = 0, int right = -2]){
+  if(right == -2){
+    right = list.length;
+  }
+  if(left < right){
+    int pivotIndex = pivot(list, left,right);
+    // left
+    quickSort(list,left, pivotIndex - 1);
+    // right
+    quickSort(list, pivotIndex + 1, right);
+  }
+  return list;
+}
 int pivot(List<int> list, [int start = 0, int end = -1]){
-  //[5,3,2,8,15,4,8,6,10,12,9];
+
   if(end == -1){
     end = list.length - 1;
   }
   int pivott = list[start];
   int swapIndex = start;
-  print('myList = $list');
   for(int i = start + 1; i < list.length; i++){
     if(pivott > list[i]){
       swapIndex++;
-      print('swapIndex = $swapIndex');
-      print('i = $i');
       swap(list, swapIndex, i);
     }
-    // if(isSwap){
-    //   print(list);
-    // }
   }
-  print(list);
   swap(list, start, swapIndex);
-  print(list);
   return swapIndex;
 }
 void swap(List<int> list, int i, int j){
