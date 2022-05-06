@@ -1,8 +1,8 @@
-//0:00:00.013532
+import 'dart:math' as math;
 void main() {
-  List<int> list = [8,15,7,32,48,15,7,78,28,29,35];
-  // List<int> list = [5,3,2,8,15,4,8,6,10,12,9];
-  print(quickSort(list));
+  int num = 01203;
+  print(digitCount(num));
+  print(digitCount2(num));
 }
 
 
@@ -409,4 +409,21 @@ void swap(List<int> list, int i, int j){
   int temp = list[i];
   list[i] = list[j];
   list[j] = temp;
+}
+
+// digits counter
+int digitCount(int num){
+  if (num == 0) return 1;
+  int log10(x) => math.log(x) ~/ math.ln10;
+  int digits = log10(num.abs())+ 1;
+  return digits;
+}
+int digitCount2(int num){
+  int digits;
+  if (num.toString().contains('-')) {
+    digits = num.toString().length.abs() - 1;
+  } else {
+    digits = num.toString().length.abs();
+  }
+  return digits;
 }
