@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 void main() {
-  List<int> list = [-12,3432423,234,322,-853489589];
-  mostDigit(list);
+  int number = 10;
+  print(getNumberByDigitNumber(number, 2));
 }
 
 void swapTwoVariable() {
@@ -432,8 +432,18 @@ int digitCount2(int num) {
 
 void mostDigit(List<int> list) {
   int maxDigit = 0;
-  for(int i = 0 ; i < list.length; i++){
+  for (int i = 0; i < list.length; i++) {
     maxDigit = math.max(maxDigit, digitCount2(list[i]));
   }
   print('maxDigit = $maxDigit');
+}
+
+// left to right
+int getNumberByDigitNumber(int number, int digit) {
+  // 9 4 0 3
+  String numString = '-1';
+  if (number.toString().length >= digit && digit != 0) {
+    numString = number.toString().split('')[digit - 1];
+  }
+  return int.parse(numString);
 }
