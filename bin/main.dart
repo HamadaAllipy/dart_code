@@ -384,21 +384,19 @@ int pivot(List<int> list, [int start = 0, int end = -1]){
   int swapIndex = start;
   print('myList = $list');
   for(int i = start + 1; i < list.length; i++){
-    bool isSwap = false;
     if(pivott > list[i]){
       swapIndex++;
       print('swapIndex = $swapIndex');
       print('i = $i');
       swap(list, swapIndex, i);
-      isSwap = true;
     }
-    if(isSwap){
-      print(list);
-    }
+    // if(isSwap){
+    //   print(list);
+    // }
   }
-  // print(list);
-  // swap(list, start, swapIndex);
-  // print(list);
+  print(list);
+  swap(list, start, swapIndex);
+  print(list);
   return swapIndex;
 }
 void swap(List<int> list, int i, int j){
