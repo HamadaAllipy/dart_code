@@ -1,7 +1,8 @@
 //0:00:00.013532
 void main() {
-  List<int> list = [2,15,7,32,48,15,7,78,28,29,35];
-  print(mergeSort(list));
+  // List<int> list = [8,15,7,32,48,15,7,78,28,29,35];
+  List<int> list = [5,3,2,8,15,4,8,6,10,12,9];
+  print(pivot(list));
 }
 
 
@@ -372,4 +373,36 @@ List<int> merge(List<int> list1, List<int> list2){
     j++;
   }
   return merged;
+}
+
+int pivot(List<int> list, [int start = 0, int end = -1]){
+  //[5,3,2,8,15,4,8,6,10,12,9];
+  if(end == -1){
+    end = list.length - 1;
+  }
+  int pivott = list[start];
+  int swapIndex = start;
+  print('myList = $list');
+  for(int i = start + 1; i < list.length; i++){
+    bool isSwap = false;
+    if(pivott > list[i]){
+      swapIndex++;
+      print('swapIndex = $swapIndex');
+      print('i = $i');
+      swap(list, swapIndex, i);
+      isSwap = true;
+    }
+    if(isSwap){
+      print(list);
+    }
+  }
+  // print(list);
+  // swap(list, start, swapIndex);
+  // print(list);
+  return swapIndex;
+}
+void swap(List<int> list, int i, int j){
+  int temp = list[i];
+  list[i] = list[j];
+  list[j] = temp;
 }
