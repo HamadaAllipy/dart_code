@@ -1,10 +1,9 @@
 import 'dart:math' as math;
 
 void main() {
-
-  int number = 7140;
-  // print(getNumberByDigitNumber(number, 2));
-  print(getNumberByDigitNumber2(number, 1));
+  List<int> list = [2,5,7,9];
+  int target = 9;
+  print(sumList(list, target));
 }
 
 void swapTwoVariable() {
@@ -455,4 +454,15 @@ int getNumberByDigitNumber2(int num, int indexFromRight) {
   return number;
 }
 
+// اكتب فانشكن بتاخد [2,5,7,9] وترجع ليستا جديدة بس تكون مجموعهم 9
+List<int> sumList(List<int> list, int target){
+  for(int i = 0 ; i < list.length; i++){
+    for(int j = i +1; j < list.length; j++){
+      if(list[j] == target - list[i]){ // 9 - 2 = 7 == 7
+        return [i,j];
+      }
+    }
+  }
+  return [];
+}
 
